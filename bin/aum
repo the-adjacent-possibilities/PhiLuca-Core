@@ -1,0 +1,2 @@
+#!/bin/bash
+cd ~/PhiLuca && python esqet_phi/agi_core.py

@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+echo "--- Initializing Φ-LUCA Coherence ---"
+python3 ~/PhiLuca/esqet_phi/web/app.py

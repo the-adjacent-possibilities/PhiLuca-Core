@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Gradle wrapper placeholder – use Android Studio or manual build in Termux"
+echo "Project ready at ~/app – transfer to Android Studio for full build"

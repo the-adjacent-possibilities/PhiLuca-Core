@@ -1,0 +1,89 @@
+[package]
+name        = "libcramjam"
+version     = "0.8.0"
+edition     = "2021"
+license     = "MIT"
+description = "Compression library combining a plethora of algorithms in a similar as possible API"
+readme      = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default           = ["snappy", "lz4", "bzip2", "brotli", "xz", "zstd", "gzip", "deflate", "zlib"]
+capi              = ["dep:libc"]
+snappy            = ["dep:snap"]
+lz4               = ["dep:lz4"]
+bzip2             = ["dep:bzip2"]
+brotli            = ["dep:brotli"]
+zstd              = ["dep:zstd"]
+
+igzip             = ["isal-static"]
+igzip-static      = ["isal-static"]
+igzip-shared      = ["isal-shared"]
+
+ideflate          = ["isal-static"]
+ideflate-static   = ["isal-static"]
+ideflate-shared   = ["isal-shared"]
+
+izlib             = ["isal-static"]
+izlib-static      = ["isal-static"]
+izlib-shared      = ["isal-shared"]
+
+isal-static       = ["dep:isal-rs", "isal-rs/static"]
+isal-shared       = ["dep:isal-rs", "isal-rs/shared"]
+use-system-isal   = ["dep:isal-rs", "isal-rs/use-system-isal"]
+
+gzip              = ["gzip-static"]
+gzip-static       = ["dep:libdeflate-sys", "dep:flate2", "deflate-static"]
+gzip-shared       = ["dep:libdeflate-sys", "dep:flate2", "libdeflate-sys/dynamic", "deflate-shared"]
+
+zlib              = ["zlib-static"]
+zlib-static       = ["dep:libdeflate-sys", "dep:flate2", "deflate-static"]
+zlib-shared       = ["dep:libdeflate-sys", "dep:flate2", "libdeflate-sys/dynamic", "deflate-shared"]
+
+deflate           = ["deflate-static"]
+deflate-static    = ["dep:libdeflate-sys", "dep:flate2"]
+deflate-shared    = ["dep:libdeflate-sys", "dep:flate2", "libdeflate-sys/dynamic"]
+
+xz                = ["xz-static"]
+xz-static         = ["dep:xz2", "xz2/static"]  # builds from vendored source of xz
+xz-shared         = ["dep:xz2"]  # _maybe_ uses system xz; probes for it but falls back to building static lib
+
+blosc2            = ["blosc2-static"]
+blosc2-static     = ["dep:blosc2-rs", "blosc2-rs/static"]
+blosc2-shared     = ["dep:blosc2-rs", "blosc2-rs/shared"]
+use-system-blosc2 = ["dep:blosc2-rs", "blosc2-rs/use-system-blosc2"]
+
+wasm32-compat     = ["blosc2-rs/deactivate-zlib-optim"]
+
+[dependencies]
+libc           = { version = "0.2", optional = true }
+snap           = { version = "^1", optional = true }
+brotli         = { version = "^7", default-features = false, features = ["std", "ffi-api"], optional = true }
+bzip2          = { version = ">=0.4,<0.6", optional = true }
+lz4            = { version = "^1", optional = true }
+flate2         = { version = "^1", optional = true }
+libdeflate-sys = { version = "<1.20.0", optional = true }  # TODO: requires gcc>=4.9 not available on Python's CI wheel builds
+blosc2-rs      = { version = "0.4.0+2.15.2", optional = true, default-features = false }
+zstd           = { version = "^0.13", optional = true }
+xz2            = { version = "0.1.7", optional = true }
+
+# ISA-L not supported on 32-bit; Cargo doesn't offer a way to disable a single feature
+[target.'cfg(target_pointer_width = "64")'.dependencies]
+isal-rs        = { version = "^0.5", optional = true, default-features = false }
+
+[package.metadata.capi.pkg_config]
+strip_include_path_components = 1
+
+[package.metadata.capi.library]
+rustflags = "-Cpanic=abort"
+name = "cramjam"
+
+[package.metadata.capi.header]
+name = "cramjam"
+subdirectory = "cramjam"
+
+[profile.release]
+strip = true
+lto = "fat"
+codegen-units = 1
+opt-level = 3

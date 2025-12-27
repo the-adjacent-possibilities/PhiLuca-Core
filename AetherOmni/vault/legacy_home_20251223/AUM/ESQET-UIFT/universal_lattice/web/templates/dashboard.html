@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ESQET Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>body { background: #0f0f0f; color: #00ff00; font-family: monospace; }</style>
+</head>
+<body>
+    <h1>Möbius Torsion Kernel: Live Metrics</h1>
+    <div id="graph"></div>
+    <script>
+        var graph = {{ graph_json | safe }};
+        Plotly.newPlot('graph', graph.data, graph.layout);
+        setInterval(function() { location.reload(); }, 2000);
+    </script>
+</body>
+</html>

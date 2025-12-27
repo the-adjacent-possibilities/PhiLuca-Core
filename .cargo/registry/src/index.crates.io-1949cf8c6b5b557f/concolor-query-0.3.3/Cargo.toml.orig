@@ -1,0 +1,20 @@
+[package]
+name = "concolor-query"
+version = "0.3.3"
+license = "MIT OR Apache-2.0"
+description = "Look up colored console capabilities"
+repository = "https://github.com/rust-cli/concolor"
+categories = ["command-line-interface"]
+keywords = ["cli", "color", "no-std", "terminal", "ansi"]
+edition = "2021"
+rust-version = "1.60.0"  # MSRV
+include = [
+  "src/**/*",
+  "Cargo.toml",
+  "LICENSE*",
+  "README.md",
+  "examples/**/*"
+]
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.45.0", features = ["Win32_System_Console", "Win32_Foundation"] }

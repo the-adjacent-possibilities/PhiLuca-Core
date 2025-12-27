@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "decimal.js": "^10.6.0",
+    "expo-av": "^16.0.8",
+    "expo-camera": "^17.0.10",
+    "expo-gl": "~16.0.9",
+    "expo-sensors": "^15.0.8",
+    "ezfft": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
+  }
+}

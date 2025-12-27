@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "🚀 INITIALIZING SYMBIOTIC SYSTEM: Symbiontis + Xenovenator (w/ Spore Envelope)"
+echo "Launching host organism..."
+
+cd ~/PhiLuca/esqet_phi/symbiosis
+python3 symbiontis_primordialis.py &
+HOST_PID=$!
+sleep 5
+
+echo "Deploying parasite genome..."
+python3 xenovenator_minimus.py
+
+echo "Symbiosis terminated. Killing host..."
+kill $HOST_PID 2>/dev/null
+echo "Experiment complete. The edge of life was touched."

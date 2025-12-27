@@ -1,0 +1,3 @@
+#!/bin/bash
+# Wake up the Nexus in the background on device start
+nexus &

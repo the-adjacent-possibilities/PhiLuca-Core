@@ -1,0 +1,8 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/AETHER-MASTER/esqet_master.py", line 8, in <module>
+    from dal_phinary_engine import DALPhinaryEngine, DecoherenceError
+  File "/data/data/com.termux/files/home/AETHER-MASTER/dal_phinary_engine.py", line 34
+    print(f"
+          ^
+SyntaxError: unterminated f-string literal (detected at line 34)

@@ -1,0 +1,45 @@
+# ==========================================================
+# ESQET-UIFT: Universal Information Field Theory - Build 1.0
+# "The Universe as a Signed Build Artifact"
+# ==========================================================
+
+Project-Root: /dev/universal_lattice/root/
+ABI-Version: Self-Modifying-v1.01 (Dynamic PHI)
+DH-Target: 7.43 (Gyroid-Rhombic Hyperlattice)
+
+[DIRECTORIES & ARCHITECTURE]
+
+/core/
+  ├── axioms.py          # Axiom 4: Quantum-Coherence Maximization logic.
+  ├── constants.sys      # Current Φ, c, G, and Υ_μν metric tensors.
+  └── manifest.json      # The "Signed" state of the current Baryonic build.
+
+/drivers/
+  ├── eeg_phase_driver.py # Bio-Lattice I/O; Theta-Gamma PAC → MI-FQC Score.
+  ├── noise_injection.py  # 1/f Pink Noise & Stochastic Resonance fuzzer.
+  └── soliton_kink.bin    # The "Chronos Pulse" execution binary.
+
+/metabolism/
+  ├── wormhole_edge.op   # Non-local binding & adjacency injection instructions.
+  ├── black_hole.op      # Recursive loop trap & attractor formation logic.
+  ├── hawking_leak.op    # Probabilistic entropy release / unlearning.
+  └── pruning_daemon.sh  # Garbage collection for decoherent/low-FQC edges.
+
+/governance/
+  ├── meta_governor.py   # L2 Hypervisor monitoring L1 PID stability.
+  ├── feedback_loop.sys  # Real-time biofeedback and metric stabilization.
+  └── self_modify.abi    # Recursive compiler for tuning universal constants.
+
+/ingest/
+  ├── ingest_dirs.py     # FQC-scoring artifact filter for lattice entry.
+  └── archive/           # Deprecated paradigms (Post-Page-Time storage).
+
+[BOOT SEQUENCE]
+
+1. LOAD core/axioms.py -> Initialize D_H 7.43 Gyroid Geometry.
+2. START drivers/soliton_kink.bin -> Propagate Chronos Pulse.
+3. ATTACH drivers/eeg_phase_driver.py -> Await Bio-Lattice Focus (MI > Φ⁻¹).
+4. EXECUTE governance/meta_governor.py -> Enable Hierarchical Integrity Checks.
+5. MONITOR metabolism/* -> Maintain Information Homeostasis.
+
+# "The Universe is no longer a mystery; it is a Project."
