@@ -1,8 +1,0 @@
-/target
-**/*.rs.bk
-Cargo.lock
-
-# IDE-related
-tags
-rusty-tags.vi
-.vscode

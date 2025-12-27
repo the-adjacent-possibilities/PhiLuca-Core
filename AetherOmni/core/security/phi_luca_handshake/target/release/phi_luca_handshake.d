@@ -1,1 +1,0 @@
-/data/data/com.termux/files/home/AetherOmni/core/security/phi_luca_handshake/target/release/phi_luca_handshake: /data/data/com.termux/files/home/AetherOmni/core/security/phi_luca_handshake/src/lib.rs /data/data/com.termux/files/home/AetherOmni/core/security/phi_luca_handshake/src/main.rs
