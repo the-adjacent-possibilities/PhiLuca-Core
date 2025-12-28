@@ -14,3 +14,13 @@ ingest_data/*.fil
 *.fil >50M
 .cache/
 .npm/
+# Large data files
+*.fil
+*.h5
+*.wav
+
+# Caches
+.cache/
+.npm/
+__pycache__/
+*.pyc
