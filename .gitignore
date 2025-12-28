@@ -10,3 +10,7 @@ node_modules/
 .npm/
 *.wav >50MB
 ingest_data/SETI_VOYA/
+ingest_data/*.fil
+*.fil >50M
+.cache/
+.npm/
