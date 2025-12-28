@@ -34,3 +34,13 @@ __pycache__/
 .npm/
 __pycache__/
 *.pyc
+# Large data files
+*.fil
+*.h5
+*.wav
+
+# Caches
+.cache/
+.npm/
+__pycache__/
+*.pyc
