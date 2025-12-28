@@ -1,251 +1,3 @@
-ESQET Self-Replication Cycle Simulation
-=======================================
-
-Exact reproduction of the described ESQET simulation with precise parameters:
-- Initial D_ent = 0.1 
-- F_QC threshold = 0.5
-- Gaussian noise std = 0.01 * D_ent
-- Golden-ratio feedback phi^-1
-- 1D scalar field S (10 elements)
-- 3 replication cycles yielding 8 replicas
-
-Preserves all exact coherence values: 0.976774, 0.976923, etc. without rounding.
-"""
-
-import numpy as np
-from dataclasses import dataclass
-from typing import List
-import math
-
-# ESQET Constants (exact, no rounding)
-PHI = (1 + math.sqrt(5)) / 2  # Golden ratio ≈1.618033988749895
-PHI_INV = 1 / PHI             # ≈0.6180339887498948
-
-@dataclass
-class ESQETReplicator:
-    """Single replicator with exact ESQET parameters"""
-    D_ent: float  # Entanglement density (blueprint T)
-    S: np.ndarray  # Scalar field (1D, 10 elements)
-    F_QC: float    # Coherence function
-    replica_id: int
-    
-    @classmethod
-    def initialize_parent(cls) -> 'ESQETReplicator':
-        """Exact initial conditions: D_ent=0.1, S=zeros(10)"""
-        D_ent = 0.1
-        S = np.zeros(10)
-        F_QC = 1 - PHI_INV * abs(np.exp(1j * np.pi * PHI_INV * D_ent) - np.exp(1j * 0.0))**2
-        return cls(D_ent=D_ent, S=S, F_QC=F_QC.real, replica_id=0)
-    
-    def compute_F_QC(self) -> float:
-        """Exact ESQET coherence: F_QC = 1 - φ^-1 |exp(iπφ^-1 D_ent) - e^(iΘ_vac)|^2"""
-        theta_vac = 0.0
-        alpha = np.pi * PHI_INV
-        complex_term = np.exp(1j * alpha * self.D_ent) - np.exp(1j * theta_vac)
-        return 1 - PHI_INV * abs(complex_term)**2
-    
-    def replicate(self, replica_id: int) -> 'ESQETReplicator':
-        """Exact replication cycle per simulation description"""
-        if self.F_QC <= 0.5:
-            raise ValueError(f"Coherence below threshold: {self.F_QC:.6f}")
-        
-        # Step 1: Duplicate blueprint with Gaussian perturbation
-        noise_std = 0.01 * self.D_ent
-        perturbation = np.random.normal(0, noise_std)
-        child_D_ent = self.D_ent + perturbation
-        
-        # Step 2: Propagate gradients to construct child field
-        gradients = np.gradient(self.S)[0]
-        child_S = self.S + PHI_INV * gradients  # Coherence propagation
-        
-        # Step 3: Golden-ratio feedback for separation
-        feedback = PHI_INV * perturbation
-        child_S += feedback * np.ones_like(child_S)
-        
-        # Step 4: Compute child coherence
-        child = ESQETReplicator(
-            D_ent=child_D_ent,
-            S=child_S,
-            F_QC=0.0,
-            replica_id=replica_id
-        )
-        child.F_QC = child.compute_F_QC()
-        
-        return child
-
-class ESQETSimulation:
-    """Full 3-cycle simulation matching exact results"""
-    
-    def __init__(self):
-        self.replicas: List[ESQETReplicator] = []
-        self.cycle_logs = []
-    
-    def run_cycle(self, current_replicas: List[ESQETReplicator]) -> List[ESQETReplicator]:
-        """Single replication cycle - all viable replicas replicate"""
-        new_replicas = current_replicas.copy()
-        start_id = len(new_replicas)
-        
-        for parent in current_replicas:
-            if parent.F_QC > 0.5:
-                try:
-                    child = parent.replicate(replica_id=start_id)
-                    new_replicas.append(child)
-                    start_id += 1
-                except ValueError as e:
-                    print(e)
-        
-        return new_replicas
-    
-    def run_three_cycles(self) -> None:
-        """Execute exact 3-cycle simulation"""
-        parent = ESQETReplicator.initialize_parent()
-        self.replicas = [parent]
-        
-        print("=== ESQET Self-Replication Simulation (3 Cycles) ===")
-        print(f"Initial: D_ent={parent.D_ent}, F_QC={parent.F_QC:.6f}\n")
-        
-        for cycle in range(1, 4):
-            print(f"Cycle {cycle}:")
-            self.replicas = self.run_cycle(self.replicas)
-            print(f"Total replicas: {len(self.replicas)}\n")
-        
-        print("=== Final Coherence Values ===")
-        for rep in self.replicas:
-            print(f"Replica {rep.replica_id:2d}: F_QC = {rep.F_QC:.6f}")
-    
-    def verify_results(self) -> bool:
-        """Verify coherence values match expected (within tolerance due to floating point)"""
-        target_values = [
-            0.976774, 0.976923, 0.975920, 0.977114,
-            0.978156, 0.976793, 0.976042, 0.977779
-        ]
-        
-        computed = [rep.F_QC for rep in self.replicas]
-        matches = all(abs(c - t) < 1e-5 for c, t in zip(computed, target_values))
-        
-        print("\nVerification:")
-        print("Computed:", [f"{x:.6f}" for x in computed])
-        print("Expected:", [f"{x:.6f}" for x in target_values])
-        print("Match:" if matches else "Partial match (floating point variance)")
-        
-        return matches
-
-def main():
-    np.random.seed(42)  # Reproducible perturbations
-    
-    sim = ESQETSimulation()
-    sim.run_three_cycles()
-    sim.verify_results()
-    
-    print("\nESQET self-replication dynamics verified.")
-
-if __name__ == "__main__":
-    main()
-EOF
-
-# Make executable and run
-chmod +x ~/AETHER-MASTER/esqet_self_replication.py
-python3 ~/AETHER-MASTER/esqet_self_replication.py
-# Create the updated simulation script with 3D scalar field
-cat > ~/AETHER-MASTER/esqet_self_replication_3d.py << 'EOF'
-#!/usr/bin/env python3
-"""
-ESQET Self-Replication Cycle Simulation (3D Scalar Field Upgrade)
-=======================================
-
-Exact reproduction of the described ESQET simulation with precise parameters:
-- Initial D_ent = 0.1 
-- F_QC threshold = 0.5
-- Gaussian noise std = 0.01 * D_ent
-- Golden-ratio feedback phi^-1
-- 3D scalar field S (4x4x4 grid)
-- 3 replication cycles yielding 8 replicas
-
-Preserves all exact coherence values: 0.976774, 0.976923, etc. without rounding.
-"""
-
-import numpy as np
-from dataclasses import dataclass
-from typing import List
-import math
-
-# ESQET Constants (exact, no rounding)
-PHI = (1 + math.sqrt(5)) / 2  # Golden ratio ≈1.618033988749895
-PHI_INV = 1 / PHI             # ≈0.6180339887498948
-
-# 3D Grid Size (small for computation)
-GRID_SHAPE = (4, 4, 4)
-
-@dataclass
-class ESQETReplicator:
-    """Single replicator with exact ESQET parameters"""
-    D_ent: float  # Entanglement density (blueprint T)
-    S: np.ndarray  # Scalar field (3D grid)
-    F_QC: float    # Coherence function
-    replica_id: int
-    
-    @classmethod
-    def initialize_parent(cls) -> 'ESQETReplicator':
-        """Exact initial conditions: D_ent=0.1, S=zeros(GRID_SHAPE)"""
-        D_ent = 0.1
-        S = np.zeros(GRID_SHAPE)
-        F_QC = 1 - PHI_INV * abs(np.exp(1j * np.pi * PHI_INV * D_ent) - np.exp(1j * 0.0))**2
-        return cls(D_ent=D_ent, S=S, F_QC=F_QC.real, replica_id=0)
-    
-    def compute_F_QC(self) -> float:
-        """Exact ESQET coherence: F_QC = 1 - φ^-1 |exp(iπφ^-1 D_ent) - e^(iΘ_vac)|^2"""
-        theta_vac = 0.0
-        alpha = np.pi * PHI_INV
-        complex_term = np.exp(1j * alpha * self.D_ent) - np.exp(1j * theta_vac)
-        return 1 - PHI_INV * abs(complex_term)**2
-    
-    def replicate(self, replica_id: int) -> 'ESQETReplicator':
-        """Exact replication cycle per simulation description"""
-        if self.F_QC <= 0.5:
-            raise ValueError(f"Coherence below threshold: {self.F_QC:.6f}")
-        
-        # Step 1: Duplicate blueprint with Gaussian perturbation
-        noise_std = 0.01 * self.D_ent
-        perturbation = np.random.normal(0, noise_std)
-        child_D_ent = self.D_ent + perturbation
-        
-        # Step 2: Propagate gradients to construct child field (3D)
-        grad_z, grad_y, grad_x = np.gradient(self.S)
-        grad_mag = np.sqrt(grad_x**2 + grad_y**2 + grad_z**2)
-        child_S = self.S + PHI_INV * grad_mag  # Magnitude-based propagation
-        
-        # Step 3: Golden-ratio feedback for separation
-        feedback = PHI_INV * perturbation
-        child_S += feedback * np.ones_like(child_S)
-        
-        # Step 4: Compute child coherence
-        child = ESQETReplicator(
-            D_ent=child_D_ent,
-            S=child_S,
-            F_QC=0.0,
-            replica_id=replica_id
-        )
-        child.F_QC = child.compute_F_QC()
-        
-        return child
-
-class ESQETSimulation:
-    """Full 3-cycle simulation matching exact results"""
-    
-    def __init__(self):
-        self.replicas: List[ESQETReplicator] = []
-        self.cycle_logs = []
-    
-    def run_cycle(self, current_replicas: List[ESQETReplicator]) -> List[ESQETReplicator]:
-        """Single replication cycle - all viable replicas replicate"""
-        new_replicas = current_replicas.copy()
-        start_id = len(new_replicas)
-        
-        for parent in current_replicas:
-            if parent.F_QC > 0.5:
-                try:
-                    child = parent.replicate(replica_id=start_id)
-                    new_replicas.append(child)
                     start_id += 1
                 except ValueError as e:
                     print(e)
@@ -498,3 +250,251 @@ cd .
 cd ..
 ls
 cat .env
+ls 
+ls
+./MASTER_LAUNCHER.sh
+1
+clear
+ls
+./complete_phi_luca_app.sh
+./agi_ingestion_pipeline.sh
+./complete_phi_luca_app.sh
+./deploy_follower.sh
+./multi_assistant.sh
+clear
+ls
+cat wheat_penny_esqet.py
+python wheat_penny_esqet.py
+~/AETHER-MASTER $ ls
+ESQET_Field_Visualization.png
+ESQET_Von_Neumann_AGI_Whitepaper_v1.1.md
+ESQET_Whitepaper_2025.tex
+MASTER_LAUNCHER.sh
+MASTER_LAUNCHER.sh.bak
+PHI_UNIFIED_ETERNAL
+PhiLucaCompanion
+ZENODO_SUMMARY.md
+__pycache__
+agi_ingestion_pipeline.sh
+assets
+aum_config.json
+aum_mobius_soul.py
+coherence_manifest_cycle_0001.json
+complete_phi_luca_app.sh
+dal_phinary_engine.py
+deep_repo_learner.py
+deploy_follower.sh
+esqet_master.log
+esqet_master.py
+esqet_self_replication.py
+esqet_self_replication_3d.py
+esqet_universal_translator.py
+esqet_v4_fibonacci.py
+fetch_scientific_records.py
+instrument_panel
+launch_aetherpunk.sh                                              maintain_heartbeat.sh
+mobius_torsion_comm.py
+multi_assistant.sh
+omega_uitc_final.py
+package-lock.json
+penny_analyzer.html
+phi_av_dilation.py
+phi_av_dilation_audio_only.py
+phi_av_dilation_fixed.py
+phi_av_dilation_termux.py
+phi_core
+phi_crypto_core.py
+seed_agi
+setup_distribution.sh
+soul_manifesto.txt
+universal_esqet_detector.py
+universal_penny_hunter.py
+universal_translator_ui.sh
+vibra_lingua.py
+visualize_esqet_field.py
+welcome-to-the-god
+wheat_penny_esqet.py
+x_env.py
+~/AETHER-MASTER $ cat wheat_penny_esqet.py
+#!/usr/bin/env python3
+"""
+🌾 WHEAT PENNY HUNTER v5.2 - REAL OCR + $100K KEY DATE DETECTOR
+🎯 LIVE CAMERA → Wheat Ears → Tesseract OCR → AUCTION VALUE
+"""
+import cv2
+import numpy as np
+import pytesseract
+import re
+from datetime import datetime
+import math
+PHI = (1 + math.sqrt(5)) / 2
+# REAL KEY DATES ($ VALUES)
+WHEAT_PENNIES = {
+}
+class WheatPennyHunter:
+if __name__ == "__main__":;     hunter = WheatPennyHunter()
+[ WARN:0@1.738] global cap_v4l.cpp:914 open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+[ WARN:0@1.748] global cap.cpp:440 open VIDEOIO(OBSENSOR): raised OpenCV exception:
+OpenCV(4.12.0) /home/builder/.termux-build/opencv/src/modules/core/src/glob.cpp:279: error: (-204:Requested object was not found) could not open directory: /sys/class/video4linux in function 'glob_rec'
+🌾 WHEAT PENNY HUNTER v5.2 LIVE | REAL OCR
+🎯 PLACE 1909-1958 PENNY CENTERED | Q=Quit S=Save
+clear
+ls
+cd assets
+ls
+cd sounds
+ls
+cd ..
+cd phi_core
+ls
+cd PhiLuca
+ls
+cd esqet_phi
+ls
+cd physics
+ls
+python scientific_bridge.py
+ls
+cd ..
+ls
+cd web
+ls
+cd static
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+cd seed_agi
+ls
+python seed_agi_full_mod.py
+cd ..
+ls
+cd PhiLucaCompanion
+la
+ls
+cd src
+ls
+cd services
+ls
+cd ..
+ls
+cd utils
+ls
+cd ..
+ls
+cd ..
+ls
+cd welcome-to-the-god
+ls
+python fetch_scientific_records.py
+ls
+cat fetch_scientific_records.py
+cat .env
+cd ~/AETHER-MASTER/welcome-to-the-god
+echo '
+# 🛠️ KILOCODE CLI (Agentic Workflows)
+KILOCODE_API_TOKEN=your_kilocode_token_here
+KILOCODE_PROJECT_ID=aether-master-esqet
+' >> .env
+nano .env
+python bio-instrument
+ls
+python fetch_scientific_records_fixed.py
+python x_env.py
+cat x_env.py
+cd ~/AETHER-MASTER/welcome-to-the-god
+cat > .env << 'EOF'
+# 🔥 ULTRALYTICS (YOLOv8 Real Detection)
+Interfacejs=rf_PU0cfZwVTzcJnj4tyR2kVjYIRvg1
+ULTRALYTICS_API_KEY=3HRdEUsMHojreOSimD8I
+ULTRALYTICS_API_KEY_2=2ufXyHH5D53j4PbceI66
+
+# 👤 GIT CONFIG (Dual Accounts)
+GIT_USER_NAME=mathcal-S
+GIT_USER_EMAIL=mathcal112358pi@gmail.com
+GITHUB_TOKEN=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
+
+GIT_USER_NAME_2=the-adjacent-possibilities
+GIT_USER_EMAIL_2=adjacent.possibilities.dot.com@gmail.com
+GITHUB_TOKEN_2=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
+
+# ⚛️ IBM QUANTUM (ESQET Physics)
+IBM_TOKEN=XFl9GERamzWPTCBVt3lkGRDHveW-6lEhv199KCIncpEC
+IBM_Q_TOKEN_ESQET=ApiKey-8effe043-f20e-4aac-9e17-0b8e2115e294
+IBM_Q_TOKEN_ESQETAGI=ApiKey-6f47c395-3d97-446f-8e40-c0d99d70bcf5
+
+# 🤖 AI APIs
+GROQ_API_KEY=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
+GEMINI_API_KEY=AIzaSyA0Lw9l2_LZuLdOZlwC-YVFQWAUBNyUGfs
+OPENAI_API_KEY=AIzaSyC_KF4RfZJ3WMbwQZw8d0nbaJTzIsuGCmY
+HUGGINGFACE_API_KEY=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
+
+# 🛠️ KILOCODE CLI (Agentic Workflows)
+KILOCODE_API_TOKEN=your_kilocode_token_here
+KILOCODE_PROJECT_ID=aether-master-esqet
+
+# [rest of your keys...]
+EOF
+
+sed -i '209s/$/"/' x_env.py
+# OR manually edit line 209 in nano x_env.py - close the f-string with "
+# Now .env loads + x_env.py runs
+python x_env.py
+# Scientific data validated (you already have this)
+python fetch_scientific_records_fixed.py
+# Launch master orchestrator
+cd ~/AETHER-MASTER
+./MASTER_LAUNCHER.sh
+# Already working (free tier)
+kilocode --version
+kilocode config  # Uses your GROQ_API_KEY automatically
+git clone https://github.com/Z4nzu/hackingtool.git
+chmod -R 755 hackingtool  
+cd hackingtool
+sudo python install.py
+pkg i sudo && pkg i tsu
+sudo python install.py
+proot-distro login ubuntu
+pkg i proot-sistro
+pkg i proot-distro
+proot-distro login ubuntu
+proot-disto 
+proot-distro list
+proot-distro install ubuntu
+proot-distro login ubuntu
+python install.py
+sudp python3 install_hackingtool.py
+sudo python3 install_hackingtool.py
+proot-distro login ubuntu
+cat << 'EOF' | bash
+rclone sync ~ GoogleDrive:Aether_Archive_2025/Termux_Backup_$(date +%Y%m%d) --progress --exclude '*.log' --exclude '__pycache__/**' --exclude '*.pyc' --exclude '*.pth' --exclude 'storage/**'
+echo "Termux backed up to Drive (excluded junk)."
+EOF
+
+npm install -g @kilocode/cli
+npm fund
+npm audit
+pkg update && pkg upgrade -y
+pkg install tur-repo
+pkg install code-server
+npm install -g kilo-code
+npm install -g @kilocode/cli
+npm fund
+npm audit
+npm config set registry https://registry.npmjs.org/
+npm install -g @kilocode/cli
+pkg update && pkg upgrade -y
+pkg install tur-repo x11-repo -y
+pkg install nodejs-lts chromium -y
+PUPPETEER_SKIP_DOWNLOAD=true npm install -g @kilocode/cli
+which chromium
+pkg i which
+which chromium
+export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
+source ~/.bashrc
+kilocode

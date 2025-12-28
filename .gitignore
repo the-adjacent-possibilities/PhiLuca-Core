@@ -1,46 +1,17 @@
+# Large binaries and data
+*.fil
+*.h5
+*.wav
+*.body
+*.zip
+*.tar.gz
+
+# Caches
+.cache/
+.npm/
+__pycache__/
+*.pyc
 node_modules/
-.bash_history
-.config/rclone/rclone.conf
-*.log
-*.tmp
-*.gpg
-*backup*
-*.fil
-.cache/
-.npm/
-*.wav >50MB
-ingest_data/SETI_VOYA/
-ingest_data/*.fil
-*.fil >50M
-.cache/
-.npm/
-# Large data files
-*.fil
-*.h5
-*.wav
 
-# Caches
-.cache/
-.npm/
-__pycache__/
-*.pyc
-# Large data files
-*.fil
-*.h5
-*.wav
-
-# Caches
-.cache/
-.npm/
-__pycache__/
-*.pyc
-# Large data files
-*.fil
-*.h5
-*.wav
-
-# Caches
-.cache/
-.npm/
-__pycache__/
-*.pyc
+# LFS placeholder
+.gitattributes
