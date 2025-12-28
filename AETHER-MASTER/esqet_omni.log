@@ -1,0 +1,6 @@
+nohup: ignoring input
+Discipline? (JPL/vet/rock/universal): Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/AETHER-MASTER/esqet_omni.py", line 146, in <module>
+    user_mode = input("Discipline? (JPL/vet/rock/universal): ").strip()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 9] Bad file descriptor

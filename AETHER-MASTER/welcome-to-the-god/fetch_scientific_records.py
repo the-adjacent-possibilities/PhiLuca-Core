@@ -7,7 +7,7 @@ DATA_DEST = Path("~/AETHER-MASTER/welcome-to-the-god/ingest_data/EXTERNAL_SCIENC
 DATA_DEST.mkdir(parents=True, exist_ok=True)
 
 # Use a confirmed flat ROOT file from CMS Open Data
-CERN_URL = "http://opendata.cern.ch/record/12341/files/assets/cms/macros/demo.root"
+CERN_URL = "http://opendata.cern.ch/record/15568/files/auxiliaryfiles/cms_muons.root"
 CERN_FILE = DATA_DEST / "cern_sample.root"
 
 # Voyager SETI data
