@@ -1,0 +1,16 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# AetherOmni Master Launch
+
+echo "[🌀] Clearing existing resonance..."
+pkill -f "python3"
+sleep 1
+
+echo "[📡] Activating Command Gateway (Port 8081)..."
+python3 ~/AetherOmni/interface/mobile/sensor_server.py &
+
+echo "[🎨] Launching 3D Lattice UI (Port 8080)..."
+python3 -m http.server --directory ~/AetherOmni/interface/mobile 8080 &
+
+sleep 2
+echo "[✅] Systems Online. Opening Dashboard..."
+termux-open-url http://localhost:8080/dashboard.html

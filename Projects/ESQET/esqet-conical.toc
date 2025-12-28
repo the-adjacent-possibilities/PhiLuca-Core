@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Core Axioms}{1}{section.2}%
+\contentsline {section}{\numberline {3}Key Derivations}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Vacuum Energy (\(\phi ^{-260}\))}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Golden-Ratio Torsion and Contorsion Tensor}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Fermion Masses and Generations}{2}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}33 Triality Sectors and Prime 11}{2}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Consciousness Threshold (\(\Phi _{ESK}\))}{2}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Branch Resolutions (20/20 Completion)}{2}{section.4}%
+\contentsline {section}{\numberline {5}Simulations and Protocols}{2}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{2}{section.6}%

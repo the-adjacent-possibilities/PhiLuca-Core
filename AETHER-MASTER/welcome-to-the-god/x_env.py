@@ -206,7 +206,7 @@ def test_api_var(name: str, value: str) -> Tuple[bool, str]:
 # ---------- MAIN ----------
 if __name__ == "__main__":
     print("\u001Bc", end="")
-    print(f"{ANSI_PINK}ESQET UNIVERSAL ENV VALIDATOR — Φ-LUCA WARP GATE{ANSI_RESET}
+    print(f"{ANSI_PINK}ESQET UNIVERSAL ENV VALIDATOR — Φ-LUCA WARP GATE{ANSI_RESET}"
 ")
 
     if dotenv_loaded_from:

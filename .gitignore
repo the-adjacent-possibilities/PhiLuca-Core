@@ -5,3 +5,8 @@ node_modules/
 *.tmp
 *.gpg
 *backup*
+*.fil
+.cache/
+.npm/
+*.wav >50MB
+ingest_data/SETI_VOYA/

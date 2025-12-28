@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aether-Omni 3D Lattice</title>
+    <script src="three.min.js"></script>
+    <style>
+        body { margin: 0; background: #000; overflow: hidden; font-family: monospace; color: #0f0; }
+        #status-overlay { position: absolute; top: 10px; left: 10px; z-index: 10; font-size: 14px; }
+        
+        /* The Status Light */
+        #rec-indicator { 
+            position: absolute; top: 10px; right: 10px; 
+            width: 15px; height: 15px; border-radius: 50%; 
+            background: #333; box-shadow: 0 0 5px #000;
+            z-index: 10;
+        }
+        .rec-on { background: #ff0000 !important; box-shadow: 0 0 10px #ff0000 !important; }
+
+        #controls { 
+            position: absolute; bottom: 30px; width: 100%; 
+            display: grid; grid-template-columns: 1fr 1fr; 
+            grid-gap: 15px; padding: 0 20px; box-sizing: border-box; z-index: 20; 
+        }
+        button { 
+            background: rgba(0, 40, 0, 0.8); border: 2px solid #0f0; 
+            color: #0f0; padding: 20px 0; cursor: pointer; 
+            font-family: monospace; font-size: 18px; font-weight: bold; 
+            border-radius: 8px;
+        }
+        .btn-reboot { border-color: #ffaa00; color: #ffaa00; }
+        .btn-stop { border-color: #ff4444; color: #ff4444; }
+    </style>
+</head>
+<body>
+    <div id="status-overlay">
+        PHINPIPI RESONANCE: <span id="flux-val">45.0</span> uT<br>
+        COHERENCE: <span id="coh-val">0.99</span>
+    </div>
+
+    <div id="rec-indicator"></div>
+
+    <div id="controls">
+        <button onclick="sendCmd('start')">START</button>
+        <button onclick="sendCmd('pause')">PAUSE</button>
+        <button class="btn-reboot" onclick="sendCmd('reboot')">REBOOT</button>
+        <button class="btn-stop" onclick="sendCmd('stop')">STOP</button>
+    </div>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(2, 64, 64);
+        const material = new THREE.PointsMaterial({ color: 0x00ff88, size: 0.02 });
+        const sphere = new THREE.Points(geometry, material);
+        scene.add(sphere);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        async function updateData() {
+            try {
+                const response = await fetch('http://localhost:8081/data');
+                const data = await response.json();
+                document.getElementById('flux-val').innerText = data.flux_ut;
+                
+                // Toggle Red Light based on recording status
+                const indicator = document.getElementById('rec-indicator');
+                if(data.recording) indicator.classList.add('rec-on');
+                else indicator.classList.remove('rec-on');
+
+                let s = 1 + (data.flux_ut - 45.0) * 0.5;
+                sphere.scale.set(s, s, s);
+            } catch (e) {}
+        }
+        setInterval(updateData, 1000);
+
+        function sendCmd(action) {
+            fetch('http://localhost:8081/' + action);
+        }
+    </script>
+</body>
+</html>

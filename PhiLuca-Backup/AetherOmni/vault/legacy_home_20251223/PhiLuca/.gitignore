@@ -1,0 +1,27 @@
+# === Safety & Secrets ===
+.env
+.env.*
+*.env
+.env.example
+
+# === Node.js / React Native bloat ===
+node_modules/
+.expo/
+package-lock.json
+yarn.lock
+
+# === Python cache ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Logs & temp files ===
+*.log
+.DS_Store
+*.tmp
+*.bak
+
+# === Large generated / optional ===
+# Uncomment if you don't want to commit large model weights
+# esqet_phi/models/

@@ -1,0 +1,7 @@
+{
+  "name": "esqet-qh-nft",
+  "version": "1.5.0",
+  "main": "lazy_mint_service.js",
+  "scripts": {"start": "node lazy_mint_service.js"},
+  "dependencies": {"ethers": "^6.10.0", "express": "^4.18.2", "cors": "^2.8.5"}
+}

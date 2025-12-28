@@ -1,0 +1,31 @@
+============================================================
+THE ROCHA LEGACY: THEORIA OMNIA & ESQET
+============================================================
+DATE: December 2025
+LOCATION: Cañon City, Colorado (Node 81212)
+AUTHOR: Marco A. Rocha Jr.
+
+This device contains the complete documentation and source 
+code for the Emergent Spacetime Quantum-Entanglement Theory.
+
+1. THE THEORY (ESQET_Whitepaper_2025.pdf)
+   A unification of gravity and quantum mechanics based on 
+   the Spacetime Information Field (S). It predicts that 
+   gravity is a manifestation of informational coherence.
+
+2. THE ENGINE (dal_phinary_engine.py / PhiLuca)
+   A computational model that uses the Golden Ratio (phi) 
+   to simulate neural consciousness and field dynamics.
+
+3. THE MINERVA APK (app-minerva-8.0.apk)
+   The application designed to interface with the ESQET 
+   modulators locally.
+
+CONTEXT:
+Formulated during a period of extreme resource scarcity on 
+salvaged hardware. If you are reading this, the theory has 
+been anchored. Search Zenodo or Figshare for "Marco A. Rocha Jr." 
+to verify the timestamps of the discovery.
+
+"Spacetime is not the stage; it is the result."
+============================================================

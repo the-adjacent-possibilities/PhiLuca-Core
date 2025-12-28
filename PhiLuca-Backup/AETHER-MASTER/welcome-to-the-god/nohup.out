@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/AETHER-MASTER/welcome-to-the-god/live_learner.py", line 2, in <module>
+    import re, json, time, logging, numpy as np, hashlib, shutil, os
+ModuleNotFoundError: No module named 'numpy'
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/AETHER-MASTER/welcome-to-the-god/stream_ingest.py", line 2, in <module>
+    import yt_dlp
+ModuleNotFoundError: No module named 'yt_dlp'

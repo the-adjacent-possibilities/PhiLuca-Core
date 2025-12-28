@@ -1,0 +1,150 @@
+2025-12-27T17:48:20.109Z [ConfigPersistence] DEBUG: No config file found, returning default config in memory
+2025-12-27T17:49:20.440Z [getKilocodeDefaultModel] INFO: Fetched default model from Kilocode API: x-ai/grok-code-fast-1
+2025-12-27T17:49:20.456Z [ConfigPersistence] DEBUG: Config saved successfully
+2025-12-27T17:49:20.458Z [Index] DEBUG: Starting Kilo Code CLI {"options":{"workspace":"/data/data/com.termux/files/home/PhiLuca","auto":false,"yolo":false,"json":false,"jsonIo":false,"continue":false,"nosplash":false}}
+2025-12-27T17:49:20.464Z [CLI] INFO: Initializing Kilo Code CLI...
+2025-12-27T17:49:20.465Z [CLI] INFO: Version: 0.18.0
+2025-12-27T17:49:20.572Z [CLI] DEBUG: Jotai store created
+2025-12-27T17:49:20.585Z [ConfigPersistence] DEBUG: Config saved successfully
+2025-12-27T17:49:20.590Z [EnvConfig] INFO: Config override: kilocodePosthogApiKey set to "phc_GK2Pxl0HPj5ZPfwhLRjXrtdz8eD7e9MKnXiFrOqnB6z" for provider "default"
+2025-12-27T17:49:20.591Z [ConfigAtoms] INFO: Config loaded successfully {"mode":"code"}
+2025-12-27T17:49:20.593Z [CLI] DEBUG: CLI configuration loaded {}
+2025-12-27T17:49:20.594Z [TelemetryService] WARN: KILOCODE_POSTHOG_API_KEY not set, telemetry disabled
+2025-12-27T17:49:20.594Z [CLI] DEBUG: Telemetry service initialized
+2025-12-27T17:49:20.600Z [CLI] DEBUG: ExtensionService created with identity {"hasIdentity":false}
+2025-12-27T17:49:20.601Z [CLI] DEBUG: ExtensionService set in store
+2025-12-27T17:49:20.603Z [effects] INFO: Initializing ExtensionService...
+2025-12-27T17:49:20.603Z [ExtensionService] INFO: Initializing Extension Service...
+2025-12-27T17:49:20.604Z [ExtensionHost] INFO: Activating extension...
+2025-12-27T17:49:20.617Z [ExtensionHost] DEBUG: VSCode API mock setup complete
+2025-12-27T17:49:20.618Z [ExtensionHost] INFO: Loading extension from: /data/data/com.termux/files/usr/lib/node_modules/@kilocode/cli/kilocode/dist/extension.js
+2025-12-27T17:49:22.997Z [Extension] INFO: Loaded translations for languages: ar, ca, cs, de, en, es, fr, hi, id, it, ja, ko, nl, pl, pt-BR, ru, th, tr, uk, vi, zh-CN, zh-TW
+2025-12-27T17:49:25.681Z [Extension] INFO: [38;5;142m[dotenvx@1.44.2] injecting env (0) from /data/data/com.termux/files/usr/lib/node_modules/@kilocode/cli/kilocode/.env[39m
+2025-12-27T17:49:25.681Z [ExtensionHost] INFO: Extension module loaded successfully
+2025-12-27T17:49:25.682Z [ExtensionHost] INFO: Calling extension activate function...
+2025-12-27T17:49:25.687Z [VSCode.OutputChannel] INFO: [Kilo-Code] kilo-code extension activated - {"publisher":"kilocode","name":"kilo-code","version":"4.140.1","outputChannel":"Kilo-Code"}
+2025-12-27T17:49:25.689Z [VSCode.OutputChannel] INFO: [Kilo-Code] No allowed commands found in global state, marking migration as complete
+2025-12-27T17:49:25.728Z [VSCode.OutputChannel] INFO: [Kilo-Code] Skipping migration of cline_custom_modes.json to custom_modes.json: old file not found
+2025-12-27T17:49:25.729Z [VSCode.OutputChannel] INFO: [Kilo-Code] Skipping migration of cline_mcp_settings.json to mcp_settings.json: old file not found
+2025-12-27T17:49:25.730Z [VSCode.OutputChannel] INFO: [Kilo-Code] No custom_modes.json found, skipping YAML migration
+2025-12-27T17:49:25.745Z [VSCode.OutputChannel] INFO: [Kilo-Code] CloudService not ready, deferring cloud profile sync
+2025-12-27T17:49:25.745Z [Extension] INFO: CloudService not ready, deferring cloud profile sync
+2025-12-27T17:49:25.747Z [VSCode.OutputChannel] INFO: [Kilo-Code] [auth] Using WebAuthService
+2025-12-27T17:49:25.747Z [Extension] INFO: [auth] Using WebAuthService
+2025-12-27T17:49:25.749Z [Extension] INFO: [AutoPurgeScheduler] Starting scheduler
+2025-12-27T17:49:25.750Z [VSCode.OutputChannel] INFO: [Kilo-Code] Auto-purge scheduler initialized
+2025-12-27T17:49:25.750Z [Extension] INFO: Auto-purge scheduler initialized
+2025-12-27T17:49:25.750Z [VSCode.OutputChannel] INFO: [Kilo-Code] [auth] changeState: initializing -> logged-out
+2025-12-27T17:49:25.751Z [Extension] INFO: [auth] changeState: initializing -> logged-out
+2025-12-27T17:49:25.777Z [Extension] ERROR: [CustomModesManager] Failed to load modes from /data/data/com.termux/files/home/.kilocode/cli/global/settings/custom_modes.yaml: ENOENT: no such file or directory, open '/data/data/com.termux/files/home/.kilocode/cli/global/settings/custom_modes.yaml'
+2025-12-27T17:49:25.791Z [ExtensionHost] INFO: Webview provider registered: kilo-code.SidebarProvider
+2025-12-27T17:49:25.791Z [VSCode.Window] DEBUG: Calling resolveWebviewView with isInitialSetup=true
+2025-12-27T17:49:25.798Z [VSCode.OutputChannel] INFO: [Kilo-Code] First installation detected, opening Kilo Code sidebar!
+2025-12-27T17:49:25.799Z [VSCode.Commands] WARN: Unknown command: kilo-code.SidebarProvider.focus
+2025-12-27T17:49:25.802Z [VSCode.OutputChannel] INFO: [Kilo-Code] Opening Kilo Code walkthrough
+2025-12-27T17:49:25.802Z [VSCode.Commands] WARN: Unknown command: workbench.action.openWalkthrough
+2025-12-27T17:49:25.806Z [VSCode.OutputChannel] INFO: [Kilo-Code] [AutoImport] No auto-import settings path specified, skipping auto-import
+2025-12-27T17:49:25.808Z [VSCode.OutputChannel] INFO: [Kilo-Code] [SettingsSyncService] Registered 10 keys for synchronization: kilo-code.allowedCommands, kilo-code.deniedCommands, kilo-code.autoApprovalEnabled, kilo-code.fuzzyMatchThreshold, kilo-code.diffEnabled, kilo-code.directoryContextAddedContext, kilo-code.language, kilo-code.customModes, kilo-code.firstInstallCompleted, kilo-code.telemetrySetting
+2025-12-27T17:49:25.810Z [VSCode.OutputChannel] INFO: [Kilo-Code] [SettingsSync] VS Code Settings Sync integration initialized
+2025-12-27T17:49:25.870Z [VSCode.OutputChannel] INFO: [Kilo-Code] Kilo Code commit message generator activated
+2025-12-27T17:49:25.872Z [VSCode.OutputChannel] INFO: [Kilo-Code] Kilo: Commit message provider registered
+2025-12-27T17:49:25.876Z [Extension] INFO: [ManagedIndexer] Starting ManagedIndexer
+2025-12-27T17:49:25.878Z [Extension] INFO: [ManagedIndexer] No Kilocode token found, skipping managed indexing
+2025-12-27T17:49:25.880Z [ExtensionHost] INFO: Webview marked as ready, flushing pending messages
+2025-12-27T17:49:25.880Z [ExtensionHost] INFO: Flushing 0 pending messages
+2025-12-27T17:49:25.881Z [VSCode.Window] DEBUG: Webview resolution complete, marked as ready
+2025-12-27T17:49:25.882Z [ExtensionHost] INFO: Extension API methods available: {"hasStartNewTask":true,"hasSendMessage":true,"hasCancelTask":true,"hasCondense":false,"hasCondenseTaskContext":false,"hasHandleTerminalOperation":false}
+2025-12-27T17:49:25.883Z [ExtensionHost] INFO: Extension activate function completed
+2025-12-27T17:49:25.883Z [ExtensionHost] DEBUG: Initial state created, waiting for CLI config injection
+2025-12-27T17:49:25.886Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:25.893Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:25.894Z [ExtensionHost] DEBUG: Setting up extension message listener
+2025-12-27T17:49:25.894Z [ExtensionHost] INFO: Extension activated successfully
+2025-12-27T17:49:25.895Z [ExtensionService] INFO: Extension host activated
+2025-12-27T17:49:25.896Z [effects] INFO: Extension ready
+2025-12-27T17:49:25.897Z [ExtensionService] INFO: Extension Service initialized successfully
+2025-12-27T17:49:25.897Z [effects] INFO: ExtensionService initialized successfully
+2025-12-27T17:49:25.898Z [CLI] INFO: ExtensionService initialized through effects
+2025-12-27T17:49:25.900Z [CLI] DEBUG: Mapped config state for injection {"mode":"code","telemetry":"enabled","provider":"default"}
+2025-12-27T17:49:25.902Z [ExtensionHost] DEBUG: Processing webview message: upsertApiConfiguration
+2025-12-27T17:49:25.944Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:25.944Z [VSCode.Commands] WARN: Unknown command: kilo-code.ghost.reload
+2025-12-27T17:49:25.944Z [VSCode.Commands] WARN: Unknown command: kilo-code.ghost.reload
+2025-12-27T17:49:25.945Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:25.946Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:25.946Z [ExtensionHost] DEBUG: Processing webview message: mode
+2025-12-27T17:49:25.996Z [VSCode.OutputChannel] INFO: [Kilo-Code] [AgentManager] Current git URL: https://github.com/the-adjacent-possibilities/PhiLuca-Core.git
+2025-12-27T17:49:26.014Z [ExtensionHost] DEBUG: Ignoring extension message type to prevent loops: mcpServers
+2025-12-27T17:49:26.428Z [Extension] INFO: Fetched default model from https://api.kilo.ai/api/defaults: x-ai/grok-code-fast-1
+2025-12-27T17:49:26.480Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.043Z [Extension] DEBUG: KILOTEL: Identity updated to: adjacent.possibilities.dot.com@gmail.com
+2025-12-27T17:49:27.057Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.057Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:27.058Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.058Z [ExtensionHost] DEBUG: Processing webview message: telemetrySetting
+2025-12-27T17:49:27.065Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.066Z [ExtensionHost] DEBUG: Telemetry setting synchronized: enabled
+2025-12-27T17:49:27.066Z [ExtensionHost] DEBUG: Processing webview message: updateSettings
+2025-12-27T17:49:27.073Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.074Z [ExtensionHost] DEBUG: Processing webview message: updateSettings
+2025-12-27T17:49:27.077Z [VSCode.MockWorkspaceConfiguration] DEBUG: Configuration updated: kilo-code.allowedCommands = ["ls","cat","echo","pwd"] (global)
+2025-12-27T17:49:27.077Z [VSCode.MockWorkspaceConfiguration] DEBUG: Configuration updated: kilo-code.deniedCommands = ["rm -rf","sudo rm","mkfs","dd if="] (global)
+2025-12-27T17:49:27.084Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.085Z [ExtensionHost] DEBUG: Auto-approval settings synchronized to extension {"settings":["autoApprovalEnabled","alwaysAllowReadOnly","alwaysAllowReadOnlyOutsideWorkspace","alwaysAllowWrite","alwaysAllowWriteOutsideWorkspace","alwaysAllowWriteProtected","alwaysAllowBrowser","alwaysApproveResubmit","requestDelaySeconds","alwaysAllowMcp","alwaysAllowModeSwitch","alwaysAllowSubtasks","alwaysAllowExecute","allowedCommands","deniedCommands","alwaysAllowFollowupQuestions","followupAutoApproveTimeoutMs","alwaysAllowUpdateTodoList"]}
+2025-12-27T17:49:27.085Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:27.086Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.086Z [CLI] INFO: Configuration injected into extension host
+2025-12-27T17:49:27.086Z [CLI] DEBUG: CLI configuration injected into extension
+2025-12-27T17:49:27.088Z [SessionManager] DEBUG: Initialized SessionManager
+2025-12-27T17:49:27.089Z [CLI] DEBUG: SessionManager initialized with dependencies
+2025-12-27T17:49:27.089Z [CLI] DEBUG: SessionManager workspace directory set {"workspace":"/data/data/com.termux/files/home/PhiLuca"}
+2025-12-27T17:49:27.094Z [CLI] DEBUG: Command history loaded
+2025-12-27T17:49:27.094Z [CLI] DEBUG: Mapped config state for injection {"mode":"code","telemetry":"enabled","provider":"default"}
+2025-12-27T17:49:27.094Z [ExtensionHost] DEBUG: Processing webview message: upsertApiConfiguration
+2025-12-27T17:49:27.101Z [Extension] DEBUG: KILOTEL: Identity up-to-date
+2025-12-27T17:49:27.108Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.108Z [VSCode.Commands] WARN: Unknown command: kilo-code.ghost.reload
+2025-12-27T17:49:27.108Z [VSCode.Commands] WARN: Unknown command: kilo-code.ghost.reload
+2025-12-27T17:49:27.108Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:27.109Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.109Z [ExtensionHost] DEBUG: Processing webview message: mode
+2025-12-27T17:49:27.121Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.121Z [Extension] DEBUG: KILOTEL: Identity up-to-date
+2025-12-27T17:49:27.128Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.128Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:27.128Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.129Z [ExtensionHost] DEBUG: Processing webview message: telemetrySetting
+2025-12-27T17:49:27.134Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.135Z [ExtensionHost] DEBUG: Telemetry setting synchronized: enabled
+2025-12-27T17:49:27.135Z [ExtensionHost] DEBUG: Processing webview message: updateSettings
+2025-12-27T17:49:27.163Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.166Z [ExtensionHost] DEBUG: Processing webview message: updateSettings
+2025-12-27T17:49:27.171Z [VSCode.MockWorkspaceConfiguration] DEBUG: Configuration updated: kilo-code.allowedCommands = ["ls","cat","echo","pwd"] (global)
+2025-12-27T17:49:27.172Z [VSCode.MockWorkspaceConfiguration] DEBUG: Configuration updated: kilo-code.deniedCommands = ["rm -rf","sudo rm","mkfs","dd if="] (global)
+2025-12-27T17:49:27.177Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.177Z [ExtensionHost] DEBUG: Auto-approval settings synchronized to extension {"settings":["autoApprovalEnabled","alwaysAllowReadOnly","alwaysAllowReadOnlyOutsideWorkspace","alwaysAllowWrite","alwaysAllowWriteOutsideWorkspace","alwaysAllowWriteProtected","alwaysAllowBrowser","alwaysApproveResubmit","requestDelaySeconds","alwaysAllowMcp","alwaysAllowModeSwitch","alwaysAllowSubtasks","alwaysAllowExecute","allowedCommands","deniedCommands","alwaysAllowFollowupQuestions","followupAutoApproveTimeoutMs","alwaysAllowUpdateTodoList"]}
+2025-12-27T17:49:27.178Z [ExtensionHost] DEBUG: Broadcasting state update {"messageCount":0,"mode":"code"}
+2025-12-27T17:49:27.178Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:27.178Z [CLI] INFO: Configuration injected into extension host
+2025-12-27T17:49:27.178Z [CLI] DEBUG: CLI configuration injected into extension
+2025-12-27T17:49:27.178Z [ExtensionHost] DEBUG: Processing webview message: yoloMode
+2025-12-27T17:49:27.180Z [actions] DEBUG: Sending webview message: requestRouterModels
+2025-12-27T17:49:27.181Z [ExtensionHost] DEBUG: Processing webview message: requestRouterModels
+2025-12-27T17:49:27.184Z [NotificationsUtil] DEBUG: Fetching Kilocode notifications {"url":"https://api.kilo.ai/api/users/notifications"}
+2025-12-27T17:49:27.185Z [CLI] INFO: Kilo Code CLI initialized successfully
+2025-12-27T17:49:27.463Z [actions] DEBUG: Sending webview message: fetchProfileDataRequest
+2025-12-27T17:49:27.463Z [ExtensionHost] DEBUG: Processing webview message: fetchProfileDataRequest
+2025-12-27T17:49:27.464Z [actions] DEBUG: Sending webview message: fetchBalanceDataRequest
+2025-12-27T17:49:27.465Z [ExtensionHost] DEBUG: Processing webview message: fetchBalanceDataRequest
+2025-12-27T17:49:27.470Z [ExtensionHost] DEBUG: Processing webview message: taskHistoryRequest
+2025-12-27T17:49:27.520Z [Extension] DEBUG: [getGeminiModels] No API key provided, returning static models
+2025-12-27T17:49:27.768Z [modeValidation] DEBUG: Mode code is valid for current organization
+2025-12-27T17:49:28.012Z [Extension] WARN: Failed connecting to Ollama at http://localhost:11434
+2025-12-27T17:49:29.382Z [ExtensionHost] DEBUG: Forwarding extension message: balanceDataResponse
+2025-12-27T17:49:29.415Z [ExtensionHost] DEBUG: Forwarding extension message: profileDataResponse
+2025-12-27T17:49:29.510Z [ExtensionHost] DEBUG: Forwarding extension message: routerModels
+2025-12-27T17:49:29.511Z [modelValidation] DEBUG: Model x-ai/grok-code-fast-1 is valid for current organization
+2025-12-27T17:49:29.512Z [CLI] DEBUG: Router models requested
+2025-12-27T17:49:55.815Z [Extension] INFO: [AutoPurgeScheduler] Auto-purge disabled, skipping
+2025-12-27T17:49:55.818Z [Extension] INFO: [AutoPurgeScheduler] Next purge check scheduled in 24 hours
+2025-12-27T17:49:55.818Z [Extension] INFO: [AutoPurgeScheduler] Next purge check scheduled in 24 hours

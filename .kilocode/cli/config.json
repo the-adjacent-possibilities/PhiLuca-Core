@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "mode": "code",
+  "telemetry": true,
+  "provider": "default",
+  "providers": [
+    {
+      "id": "default",
+      "provider": "kilocode",
+      "kilocodeToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsb1VzZXJJZCI6Ijk5YTg1Y2QzLTRhM2ItNGQyYi04MDk1LThmMzg3ODlmMGJjMiIsImFwaVRva2VuUGVwcGVyIjpudWxsLCJ2ZXJzaW9uIjozLCJkZXZpY2VBdXRoUmVxdWVzdENvZGUiOiJQU0s2LUM1U1ciLCJpYXQiOjE3NjY4NTc3NTksImV4cCI6MTkyNDY0NTc1OX0.Asz9MVkfNWVbGP3VbNr_m0Hv5ncg9AfRZTfcJPwiJ7s",
+      "kilocodeModel": "x-ai/grok-code-fast-1"
+    }
+  ],
+  "autoApproval": {
+    "enabled": true,
+    "read": {
+      "enabled": true,
+      "outside": false
+    },
+    "write": {
+      "enabled": true,
+      "outside": true,
+      "protected": false
+    },
+    "browser": {
+      "enabled": false
+    },
+    "retry": {
+      "enabled": false,
+      "delay": 10
+    },
+    "mcp": {
+      "enabled": true
+    },
+    "mode": {
+      "enabled": true
+    },
+    "subtasks": {
+      "enabled": true
+    },
+    "execute": {
+      "enabled": true,
+      "allowed": [
+        "ls",
+        "cat",
+        "echo",
+        "pwd"
+      ],
+      "denied": [
+        "rm -rf",
+        "sudo rm",
+        "mkfs",
+        "dd if="
+      ]
+    },
+    "question": {
+      "enabled": false,
+      "timeout": 60
+    },
+    "todo": {
+      "enabled": true
+    }
+  },
+  "theme": "dark",
+  "customThemes": {}
+}

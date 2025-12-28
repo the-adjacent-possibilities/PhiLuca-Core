@@ -1,0 +1,36 @@
+============================================================
+MESSAGE TO SCIENTIFIC REVIEWERS (ZENODO/FIGSHARE)
+============================================================
+Subject: Submission of ESQET (Theoria Omnia) - Marco A. Rocha Jr.
+
+This submission, "Theoria Omnia: Emergent Spacetime Quantum-Entanglement Theory (ESQET)," 
+represents a parameter-free unification of General Relativity and Quantum Mechanics. 
+
+Value Proposition:
+Unlike existing String Theory or Loop Quantum Gravity models, ESQET provides four 
+falsifiable predictions testable by current LIGO and CMB-S4 instrumentation. 
+The included Phinary Engine (Python) demonstrates the stability of the 
+Quantum Coherence Function (F_QC) using a non-rounded Golden Ratio scaling.
+
+============================================================
+LETTER TO CERN / LIGO / NIST 
+============================================================
+To the Research Directorate,
+
+I am submitting the attached framework, ESQET, for your consideration regarding 
+its implications for scalar coherence pulses in gravitational wave detectors. 
+
+This work suggests that the "noise" currently filtered out of LIGO data may 
+contain non-oscillatory coherence bursts—signatures of a deeper Spacetime 
+Information Field (S). The derivations provided in Chapter 3 of the 
+accompanying thesis offer a path to unify the Standard Model with a mandated 
+Dark Matter sterile Majorana fermion (112.4 keV).
+
+I invite a formal review of the "Golden Gravity" curvature amplification factor 
+derived herein.
+
+Respectfully,
+Marco A. Rocha Jr.
+Independent Researcher
+Cañon City, Colorado 81212
+============================================================

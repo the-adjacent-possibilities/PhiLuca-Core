@@ -1,0 +1,69 @@
+
+/* AETHERPUNK INSTRUMENT PANEL - PASTE THIS ENTIRE BLOCK */
+.instrument-panel {
+  animation: panelIgnition 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+@keyframes panelIgnition {
+  0% { opacity: 0; transform: scale(0.95) rotateX(10deg); }
+  100% { opacity: 1; transform: scale(1) rotateX(0); }
+}
+
+.gauge-row { display: flex; gap: 20px; margin: 12px 0; }
+
+.analog-gauge {
+  flex: 1; position: relative; height: 100px;
+  background: radial-gradient(circle, rgba(255,215,0,0.12) 0%, transparent 70%);
+  border: 2px solid rgba(255,215,0,0.4); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  padding: 20px 15px;
+}
+
+.needle {
+  position: absolute; top: 15%; left: 50%; right: 50%;
+  height: 60%; background: linear-gradient(to top, #ffd700, #ffed4e);
+  transform-origin: bottom center; transform: translateX(-50%) rotate(var(--angle));
+  border-radius: 2px 2px 0 0; box-shadow: 0 0 20px rgba(255,215,0,0.8);
+  animation: needleSweep 2s ease-out;
+}
+
+.phi-gauge .needle { background: linear-gradient(to top, #3ddc97, #90ee90); }
+
+@keyframes needleSweep {
+  0% { transform: translateX(-50%) rotate(-90deg); }
+  100% { transform: translateX(-50%) rotate(var(--angle)); }
+}
+
+.gauge-label { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  font-size: 0.7rem; color: rgba(255,215,0,0.8); text-align: center; }
+
+.gauge-value { position: absolute; top: 25%; left: 50%; transform: translateX(-50%);
+  font-size: 0.85rem; font-weight: 700; color: #ffd700; }
+
+.specimen-card {
+  background: linear-gradient(135deg, rgba(139,69,19,0.4), rgba(75,0,0,0.5));
+  border: 2px solid #ffd700; border-radius: 16px; padding: 16px; margin: 16px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.rarity-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;
+  font-weight: 700; text-transform: uppercase; }
+.rare { background: linear-gradient(90deg, #ffd700, #ff6b6b); color: #000; }
+
+.waveform {
+  width: 100%; height: 60px; border-radius: 12px;
+  background: linear-gradient(90deg, rgba(61,220,151,0.2), rgba(255,215,0,0.15));
+  border: 1px solid rgba(61,220,151,0.4); margin: 12px 0;
+}
+
+.action-forge { display: flex; gap: 12px; flex-wrap: wrap; }
+.forge-btn {
+  flex: 1; min-width: 100px; padding: 12px 20px;
+  background: linear-gradient(145deg, rgba(255,215,0,0.2), rgba(139,69,19,0.3));
+  border: 2px solid rgba(255,215,0,0.6); border-radius: 25px;
+  color: #ffd700; font-family: 'Cinzel', serif; font-weight: 600;
+  font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease;
+}
+.forge-btn:hover {
+  background: linear-gradient(145deg, #ffd700, #ffed4e); color: #1a0f0b;
+  transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+}

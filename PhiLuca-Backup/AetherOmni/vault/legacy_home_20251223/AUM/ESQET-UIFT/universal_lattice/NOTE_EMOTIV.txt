@@ -1,0 +1,15 @@
+=== EMOTIV INTEGRATION (Future) ===
+
+Emotiv EPOC X provides 14 high-quality channels but requires:
+1. Emotiv Launcher + Cortex service running
+2. Registered Cortex App (client_id / client_secret from emotiv.com/developer)
+3. pip install cortex2
+
+Example stub (requires user credentials):
+from cortex2 import EmotivCortex2Client
+
+client = EmotivCortex2Client(url="wss://localhost:6868", ...)
+# Then subscribe to 'eeg' stream for raw data
+
+Direct BLE raw access is not publicly documented.
+For open-source raw streaming, Muse remains the primary Bio-Lattice interface.

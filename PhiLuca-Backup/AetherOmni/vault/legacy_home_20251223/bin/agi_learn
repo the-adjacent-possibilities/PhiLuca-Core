@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/AETHER-MASTER/welcome-to-the-god
+nohup python3 live_learner.py > learner.out 2>&1 &
+echo "🧠 LEARNING DAEMON LIVE | tail -f learner.out"

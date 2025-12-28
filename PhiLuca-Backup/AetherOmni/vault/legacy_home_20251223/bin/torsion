@@ -1,0 +1,2 @@
+#!/bin/bash
+python ~/PhiLuca/esqet_phi/physics/torsion_unifier.py

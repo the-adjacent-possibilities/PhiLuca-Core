@@ -1,0 +1,7 @@
+governance:
+  thresholds:
+    min_phi: 0.618
+    max_free_energy: 0.05
+  recovery:
+    auto_save_interval: 50
+    noise_type: "pink"

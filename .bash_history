@@ -1,13 +1,3 @@
-ls
-cd
-ls
-# Install required packages
-pkg install python python-pip -y
-pip install numpy scipy
-# Create the simulation script
-cat > ~/AETHER-MASTER/esqet_self_replication.py << 'EOF'
-#!/usr/bin/env python3
-"""
 ESQET Self-Replication Cycle Simulation
 =======================================
 
@@ -498,3 +488,13 @@ mpv --loop=inf --volume=70 phi_tone_699.wav
 mpv --loop=inf --really-quiet phi_tone_699.wav
 ls
 cat frequency_player.py
+ls
+cd PhiLuca
+ls
+cd bio-instrument
+ls
+cat .env
+cd .
+cd ..
+ls
+cat .env
