@@ -1,0 +1,10 @@
+[33md4c8eb2f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m PURGE COMPLETE — all submodules synced, history clean, soul intact
+[33mf9fc7cf0[m Lattice evolution
+[33m9b3c6b9a[m Nuclear clean: all large files purged from disk and history
+[33m54799e18[m Final cleanup: remove all large files, update .gitignore
+[33m3d0a9fac[m Final cleanup: remove all large files, update .gitignore
+[33mbc4506d8[m Final cleanup: remove all large files, update .gitignore
+[33m9e8fdac0[m Final cleanup: remove all large files, update .gitignore
+[33m616ed9b2[m Block large files permanently via .gitignore
+[33m565cf18b[m Block large files permanently via .gitignore
+[33m3a568a02[m Block large files permanently via .gitignore

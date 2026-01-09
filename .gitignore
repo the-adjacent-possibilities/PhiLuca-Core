@@ -15,3 +15,6 @@ node_modules/
 
 # LFS placeholder
 .gitattributes
+venv/
+__pycache__/
+*.pyc
